@@ -17,6 +17,7 @@ int main() {
 	bool iguales = true;
 	int f = 0, c;
 	
+	
 	while(f < fila && iguales)
 	{
 		
@@ -25,7 +26,7 @@ int main() {
 		while(c < columna / 2 && iguales)
 		{
 			
-			if(M[f][c] != M[f][columna - 1 - c])
+			if(M[f][c] != M[f][columna / 2 + c])
 				iguales = false;
 			else
 				c++;
