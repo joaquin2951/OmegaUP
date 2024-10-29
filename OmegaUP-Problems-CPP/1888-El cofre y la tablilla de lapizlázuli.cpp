@@ -1,45 +1,50 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main(int argc, char *argv[]) {
 	
-	int tablilla[3], cofre[3];
-	
-	
-	for(int i = 0; i < 3; i++)
-		cin >> tablilla[i];
+	vector<int> tablilla;
+	vector<int> caja;
+	int valor;
 	
 	for(int i = 0; i < 3; i++)
-		cin >> cofre[i];
+	{
+		
+		cin >> valor;
+		tablilla.push_back(valor);
+		
+	}
+
+	for(int i = 0; i < 3; i++)
+	{
+		
+		cin >> valor;
+		caja.push_back(valor);
+		
+	}
 	
+	sort(tablilla.begin(),tablilla.end());
+	sort(caja.begin(),caja.end());
 	
 	bool cabe = true;
-	int tl_tablilla = 0;
+	int i = 0;
 	
-	while(cabe && tl_tablilla < 3)
+	while(cabe && i < 3)
 	{
-		int tl_cofre = 0;
-		bool mayorAtodos = true;
-		
-		while(cabe && tl_cofre < 3)
+		if(tablilla[i] > caja[i])
 		{
-			if(tablilla[tl_tablilla] <= cofre[tl_cofre])
-				mayorAtodos = false;
-			
-				tl_cofre++;
+			cabe = false;
 		}
-		
-		if(mayorAtodos)
-					cabe = false;
 		else
-		tl_tablilla++;
+			i++;
 	}
 	
 	if(cabe)
-				cout << 1 << endl;
+					cout << 1 << endl;
 	else
-			cout << 0 << endl;
-	
+					cout << 0 << endl;
 	
 	return 0;
 }
